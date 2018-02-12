@@ -1,7 +1,7 @@
 {
-  "name": "koa-send",
+  "name": "@shellscape/koa-send",
   "description": "Transfer static files",
-  "repository": "koajs/send",
+  "repository": "shellscape/koa-send",
   "version": "4.1.2",
   "keywords": [
     "koa",
@@ -10,8 +10,12 @@
     "sendfile"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "legacy/index.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
@@ -41,7 +45,7 @@
   "scripts": {
     "lint": "eslint --fix .",
     "prepublishOnly": "babel index.js --out-file legacy/index.js",
-    "test": "mocha --require should --reporter spec",
+    "test": "npm run prepublishOnly && mocha --require should --reporter spec",
     "test-cov": "istanbul cover ./node_modules/.bin/_mocha -- --require should",
     "test-travis": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should"
   },

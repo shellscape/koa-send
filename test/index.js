@@ -1,6 +1,6 @@
 
 const request = require('supertest')
-const send = require('..')
+const send = require('../legacy')
 const path = require('path')
 const Koa = require('koa')
 const assert = require('assert')
